@@ -1,6 +1,7 @@
 package com.altech.electronic.store.utils;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import dto.BasketItemRespDTO;
 import dto.BasketRespDTO;
@@ -19,11 +20,18 @@ public class CalculatePrice extends BaseUtils {
 	        discount.getDiscountedQuantity() != null &&
 	        discount.getDiscountValue() != null &&
 	        quantity >= discount.getRequiredQuantity()) {
+	    	
+	    	int remainingDiscountQuantity = quantity - discount.getRequiredQuantity();
+	    	int discountQuantity = discount.getRequiredQuantity();
+	    	
+	    	if (remainingDiscountQuantity < discount.getRequiredQuantity()) {
+	    		discountQuantity = remainingDiscountQuantity;
+	    	}
 
-	        int groups = quantity / discount.getRequiredQuantity();
-	        int applicableDiscountedItems = groups * discount.getDiscountedQuantity();
+	        totalDiscountPrice = discount.getDiscountValue()
+	                .multiply(unitPrice.multiply(BigDecimal.valueOf(discountQuantity)))
+	                .divide(BigDecimal.valueOf(100), RoundingMode.HALF_UP); 
 
-	        totalDiscountPrice = discount.getDiscountValue().multiply(BigDecimal.valueOf(applicableDiscountedItems));
 	    }
 
 	    BigDecimal finalPrice = totalPrice.subtract(totalDiscountPrice);

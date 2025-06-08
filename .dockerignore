@@ -1,0 +1,10 @@
+.gradle
+build
+bin
+*.log
+*.iml
+*.ipr
+*.iws
+.DS_Store
+.git
+.gitignore

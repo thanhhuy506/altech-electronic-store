@@ -1,5 +1,7 @@
 package com.altech.electronic.store.controller;
 
+import static com.altech.electronic.store.constant.PathConstant.USER;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -20,10 +22,12 @@ import com.altech.electronic.store.service.UserService;
 import dto.UserDTO;
 import dto.UserLoginDTO;
 import dto.UserRegistrationDTO;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping(USER)
 @RequiredArgsConstructor
 public class UserController {
 
@@ -31,6 +35,9 @@ public class UserController {
 
 	private final UserService userService;
 
+	@Operation(summary = "Register User", description = "Creates a new user in the system", tags = "user", responses = {
+			@ApiResponse(responseCode = "201", description = "User created successfully"),
+			@ApiResponse(responseCode = "400", description = "Invalid request") })
 	@PostMapping("/register")
 	public ResponseEntity<?> register(@RequestBody UserRegistrationDTO registrationDTO)
 			throws EmailAlreadyExistsException {
@@ -45,6 +52,9 @@ public class UserController {
 
 	}
 
+	@Operation(summary = "Login User", description = "Logs in an existing user", tags = "user", responses = {
+			@ApiResponse(responseCode = "200", description = "User logged in successfully"),
+			@ApiResponse(responseCode = "401", description = "Invalid credentials") })
 	@PostMapping("/login")
 	public ResponseEntity<?> login(@RequestBody UserLoginDTO loginDTO) {
 		logger.info("Login {}", loginDTO);
@@ -58,6 +68,9 @@ public class UserController {
 
 	}
 
+	@Operation(summary = "Get User Profile", description = "Retrieves the profile of the currently logged in user", tags = "user", responses = {
+			@ApiResponse(responseCode = "200", description = "User profile retrieved successfully"),
+			@ApiResponse(responseCode = "404", description = "User not found") })
 	@GetMapping("/me")
 	public ResponseEntity<?> getCurrentUser() {
 		logger.info("Get current User infor ");
@@ -71,6 +84,9 @@ public class UserController {
 
 	}
 
+	@Operation(summary = "Get User by ID", description = "Retrieves user information by ID", tags = "user", responses = {
+			@ApiResponse(responseCode = "200", description = "User information retrieved successfully"),
+			@ApiResponse(responseCode = "404", description = "User not found") })
 	@GetMapping("/{id}")
 	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> getUserById(@PathVariable Long id) {
@@ -85,6 +101,9 @@ public class UserController {
 
 	}
 
+	@Operation(summary = "Update User Profile", description = "Updates the profile of the currently logged in user", tags = "user", responses = {
+			@ApiResponse(responseCode = "200", description = "User profile updated successfully"),
+			@ApiResponse(responseCode = "400", description = "Invalid request") })
 	@PutMapping("/{id}")
 	public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
 		logger.info("Update User id {}", id);
@@ -101,6 +120,9 @@ public class UserController {
 
 	}
 
+	@Operation(summary = "Delete User Account", description = "Deletes the account of the currently logged in user", tags = "user", responses = {
+			@ApiResponse(responseCode = "200", description = "User account deleted successfully"),
+			@ApiResponse(responseCode = "404", description = "User not found") })
 	@DeleteMapping("/{id}")
 	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> deleteUser(@PathVariable Long id) {

@@ -35,12 +35,26 @@ public class BasketServiceImpl extends BaseServiceImpl<Basket> implements Basket
 
 	private final ProductDiscountService productDiscountService;
 
+	/**
+	 * Get or create a basket for the given customer ID.
+	 *
+	 * @param customerId the ID of the customer
+	 * @return BasketRespDTO containing the basket details
+	 */
 	@Override
 	public BasketRespDTO getOrCreateBasket(Long customerId) {
 		logger.info("Get or create basket for customer id {}", customerId);
 		return BasketMapper.toDTO(getOrCreateBasketEntity(customerId));
 	}
 
+	/**
+	 * Add an item to the basket for the given customer ID.
+	 *
+	 * @param customerId the ID of the customer
+	 * @param productId  the ID of the product to add
+	 * @param quantity   the quantity to add
+	 * @return BasketRespDTO containing the updated basket details
+	 */
 	@Override
 	public BasketRespDTO addToBasket(Long customerId, Long productId, Integer quantity) {
 		logger.info("Adding to basket for customer id {}", customerId);
@@ -52,6 +66,14 @@ public class BasketServiceImpl extends BaseServiceImpl<Basket> implements Basket
 		return buildBasketResp(basketRepository.save(basket));
 	}
 
+	/**
+	 * Remove an item from the basket for the given customer ID.
+	 *
+	 * @param customerId the ID of the customer
+	 * @param productId  the ID of the product to remove
+	 * @param quantity   the quantity to remove
+	 * @return BasketRespDTO containing the updated basket details
+	 */
 	@Override
 	public BasketRespDTO removeFromBasket(Long customerId, Long productId, Integer quantity) {
 		logger.info("Removing basket for customer id {} product id {}", customerId, productId);
@@ -62,6 +84,11 @@ public class BasketServiceImpl extends BaseServiceImpl<Basket> implements Basket
 
 	}
 
+	/**
+	 * Clear the basket for the given customer ID.
+	 *
+	 * @param customerId the ID of the customer
+	 */
 	@Override
 	public void clearBasket(Long customerId) {
 		logger.info("Clearing basket for customer id {}", customerId);

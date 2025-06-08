@@ -21,14 +21,20 @@ import lombok.RequiredArgsConstructor;
 @Transactional
 @RequiredArgsConstructor
 public class ProductServiceImpl extends BaseServiceImpl<Product> implements ProductService {
-	
-	private static final Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
-	
-	private final ProductRepository productRepository;
-	
-	@Override
+
+    private static final Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
+
+    private final ProductRepository productRepository;
+
+    /**
+     * Creates a new product and saves it to the repository.
+     *
+     * @param productReqDTO the product request DTO containing product details
+     * @return ProductRespDTO containing the saved product details
+     */
+    @Override
     public ProductRespDTO createProduct(ProductReqDTO productReqDTO) {
-		logger.info("Saving new product: {}", productReqDTO);
+        logger.info("Saving new product: {}", productReqDTO);
         Product product = ProductMapper.toEntity(productReqDTO);
         Stock stock = Stock.builder()
                 .product(product)
@@ -42,20 +48,31 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
         logger.info("Product saved successfully: {}", savedProduct);
         return productResp;
     }
-	
-	@Override
+
+    /**
+     * Validates if the product exists and if the requested quantity is available in
+     * stock.
+     *
+     * @param productId         the ID of the product to validate
+     * @param requestedQuantity the quantity requested for validation
+     * @throws ResourceNotFoundException  if the product does not exist
+     * @throws InsufficientStockException if the requested quantity exceeds
+     *                                    available stock
+     */
+    @Override
     public void validateProduct(Long productId, Integer requestedQuantity) {
         Product product = productRepository.findById(productId)
-            .orElseThrow(() -> new ResourceNotFoundException("Product not found by product id:  ", productId));
-            
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found by product id:  ", productId));
+
         if (requestedQuantity != null && product.getStock().getAvailableQuantity() < requestedQuantity) {
-            throw new InsufficientStockException("Request product %s not enough with quantity %d in stock ".formatted(productId, requestedQuantity));
+            throw new InsufficientStockException(
+                    "Request product %s not enough with quantity %d in stock ".formatted(productId, requestedQuantity));
         }
     }
 
-	@Override
-	protected BaseRepository<Product> getRepository() {
-		return productRepository;
-	}
+    @Override
+    protected BaseRepository<Product> getRepository() {
+        return productRepository;
+    }
 
 }

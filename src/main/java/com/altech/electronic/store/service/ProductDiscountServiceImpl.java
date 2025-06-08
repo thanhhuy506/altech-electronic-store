@@ -33,6 +33,12 @@ public class ProductDiscountServiceImpl extends BaseServiceImpl<ProductDiscount>
     private final DiscountRepository discountRepository;
     private final ProductRepository productRepository;
 
+    /**
+     * Adds a product discount.
+     *
+     * @param productDiscountReqDTO the product discount request DTO
+     * @return the saved product discount response DTO
+     */
     @Override
     public ProductDiscountRespDTO addProductDiscount(ProductDiscountReqDTO productDiscountReqDTO) {
         logger.info("Saving product discount with id: {} product id {}", productDiscountReqDTO.getDiscountId(),
@@ -61,6 +67,12 @@ public class ProductDiscountServiceImpl extends BaseServiceImpl<ProductDiscount>
         }
     }
 
+    /**
+     * Retrieves a product discount by product ID.
+     *
+     * @param productId the product ID
+     * @return the product discount response DTO
+     */
     @Override
     public ProductDiscountRespDTO getByProductId(Long productId) {
         Optional<ProductDiscount> productDiscountOpt = productDiscountRepository

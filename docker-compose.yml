@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  electronic-store:
+    build: .
+    image: altech-electronic-store:latest
+    container_name: altech-electronic-store
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/data  # Persist H2 database files
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_H2_CONSOLE_ENABLED=true
+      - SPRING_H2_CONSOLE_PATH=/h2-console

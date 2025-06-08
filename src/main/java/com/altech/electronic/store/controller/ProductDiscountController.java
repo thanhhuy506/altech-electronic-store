@@ -1,5 +1,7 @@
 package com.altech.electronic.store.controller;
 
+import static com.altech.electronic.store.constant.PathConstant.ADMIN;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -21,10 +23,11 @@ import com.altech.electronic.store.service.ProductDiscountService;
 
 import dto.ProductDiscountReqDTO;
 import dto.ProductDiscountRespDTO;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/v1/admin")
+@RequestMapping(ADMIN)
 @RequiredArgsConstructor
 public class ProductDiscountController {
 
@@ -32,6 +35,7 @@ public class ProductDiscountController {
 
 	private final ProductDiscountService productDiscountService;
 
+	@Operation(summary = "Add Product Discount", description = "Adds a new product discount", tags = "product-discount")
 	@PostMapping("/product-discounts")
 	public ResponseEntity<?> addProductDiscount(@RequestBody ProductDiscountReqDTO productDiscountReqDTO) {
 		logger.info("Saving new product discount: {}", productDiscountReqDTO);
@@ -46,6 +50,7 @@ public class ProductDiscountController {
 
 	}
 
+	@Operation(summary = "Get Product Discount by product id", description = "Retrieves a product discount by its ID", tags = "product-discount")
 	@GetMapping("/product-discounts/{productId}")
 	public ResponseEntity<?> getProductById(@PathVariable(required = false, value = "productId") Long productId) {
 		logger.info("Getting product by id: {}", productId);
@@ -63,6 +68,7 @@ public class ProductDiscountController {
 
 	}
 
+	@Operation(summary = "Get All Product Discounts", description = "Retrieves all product discounts", tags = "product-discount")
 	@GetMapping("/product-discounts")
 	public ResponseEntity<?> getAllProducts() {
 		logger.info("Getting all products");
@@ -81,6 +87,7 @@ public class ProductDiscountController {
 
 	}
 
+	@Operation(summary = "Delete Product Discount", description = "Deletes a product discount by ID", tags = "product-discount")
 	@DeleteMapping("/product-discounts/{id}")
 	public ResponseEntity<?> deleteProductDiscountById(@PathVariable(required = false, value = "id") Long id) {
 		logger.info("Deleting product discount by id: {}", id);

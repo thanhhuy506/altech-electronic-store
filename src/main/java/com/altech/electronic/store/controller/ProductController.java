@@ -1,5 +1,7 @@
 package com.altech.electronic.store.controller;
 
+import static com.altech.electronic.store.constant.PathConstant.ADMIN;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -22,10 +24,11 @@ import com.altech.electronic.store.service.ProductService;
 
 import dto.ProductReqDTO;
 import dto.ProductRespDTO;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/v1/admin/products")
+@RequestMapping(ADMIN)
 @RequiredArgsConstructor
 public class ProductController {
 
@@ -33,7 +36,8 @@ public class ProductController {
 
 	private final ProductService productService;
 
-	@PostMapping()
+	@Operation(summary = "Create Product", description = "Creates a new product", tags = "product")
+	@PostMapping("/products")
 	public ResponseEntity<?> createProduct(@RequestBody ProductReqDTO productReqDTO) {
 		logger.info("Saving new product: {}", productReqDTO);
 		try {
@@ -46,7 +50,8 @@ public class ProductController {
 		}
 	}
 
-	@GetMapping("/{id}")
+	@Operation(summary = "Get Product by Id", description = "Retrieves a product", tags = "product")
+	@GetMapping("/products/{id}")
 	public ResponseEntity<?> getProductById(@PathVariable(required = false, value = "id") Long id) {
 		logger.info("Getting product by id: {}", id);
 		try {
@@ -64,7 +69,8 @@ public class ProductController {
 
 	}
 
-	@GetMapping()
+	@Operation(summary = "Get All Products", description = "Retrieves all products", tags = "product")
+	@GetMapping("/products")
 	public ResponseEntity<?> getAllProducts() {
 		logger.info("Getting all products");
 		try {
@@ -82,7 +88,8 @@ public class ProductController {
 
 	}
 
-	@DeleteMapping("/{id}")
+	@Operation(summary = "Delete Product", description = "Deletes a product by ID", tags = "product")
+	@DeleteMapping("/products/{id}")
 	public ResponseEntity<?> deleteProductById(@PathVariable(required = false, value = "id") Long id) {
 		logger.info("Deleting product by id: {}", id);
 		try {
@@ -93,7 +100,6 @@ public class ProductController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
 					.body("An unexpected error occurred: " + e.getMessage());
 		}
-
 	}
 
 }
