@@ -17,12 +17,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.altech.electronic.store.dto.ProductReqDTO;
+import com.altech.electronic.store.dto.ProductRespDTO;
 import com.altech.electronic.store.model.Product;
 import com.altech.electronic.store.model.Stock;
 import com.altech.electronic.store.repository.ProductRepository;
-
-import dto.ProductReqDTO;
-import dto.ProductRespDTO;
 
 @ExtendWith(MockitoExtension.class)
 public class ProductServiceImplTest {

@@ -1,11 +1,10 @@
 package com.altech.electronic.store.service;
 
+import com.altech.electronic.store.dto.UserDTO;
+import com.altech.electronic.store.dto.UserRegistrationDTO;
+import com.altech.electronic.store.dto.UserResponseDTO;
 import com.altech.electronic.store.exception.EmailAlreadyExistsException;
 import com.altech.electronic.store.model.User;
-
-import dto.UserDTO;
-import dto.UserRegistrationDTO;
-import dto.UserResponseDTO;
 
 public interface UserService extends BaseService<User>{
 

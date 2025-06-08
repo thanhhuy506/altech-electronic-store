@@ -10,6 +10,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.altech.electronic.store.dto.BasketItemRespDTO;
+import com.altech.electronic.store.dto.BasketRespDTO;
+import com.altech.electronic.store.dto.DiscountDTO;
 import com.altech.electronic.store.exception.ResourceNotFoundException;
 import com.altech.electronic.store.mapper.BasketMapper;
 import com.altech.electronic.store.model.Basket;
@@ -17,9 +20,6 @@ import com.altech.electronic.store.repository.BaseRepository;
 import com.altech.electronic.store.repository.BasketRepository;
 import com.altech.electronic.store.utils.CalculatePrice;
 
-import dto.BasketItemRespDTO;
-import dto.BasketRespDTO;
-import dto.DiscountDTO;
 import lombok.RequiredArgsConstructor;
 
 @Service

@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.altech.electronic.store.dto.ProductReqDTO;
+import com.altech.electronic.store.dto.ProductRespDTO;
 import com.altech.electronic.store.exception.InsufficientStockException;
 import com.altech.electronic.store.exception.ResourceNotFoundException;
 import com.altech.electronic.store.mapper.ProductMapper;
@@ -13,8 +15,6 @@ import com.altech.electronic.store.model.Stock;
 import com.altech.electronic.store.repository.BaseRepository;
 import com.altech.electronic.store.repository.ProductRepository;
 
-import dto.ProductReqDTO;
-import dto.ProductRespDTO;
 import lombok.RequiredArgsConstructor;
 
 @Service

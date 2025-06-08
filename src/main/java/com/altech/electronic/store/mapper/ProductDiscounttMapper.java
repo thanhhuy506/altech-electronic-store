@@ -3,12 +3,11 @@ package com.altech.electronic.store.mapper;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.altech.electronic.store.dto.DiscountDTO;
+import com.altech.electronic.store.dto.ProductDiscountReqDTO;
+import com.altech.electronic.store.dto.ProductDiscountRespDTO;
 import com.altech.electronic.store.model.Discount;
 import com.altech.electronic.store.model.ProductDiscount;
-
-import dto.DiscountDTO;
-import dto.ProductDiscountReqDTO;
-import dto.ProductDiscountRespDTO;
 
 public class ProductDiscounttMapper {
 	

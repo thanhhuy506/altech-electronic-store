@@ -1,4 +1,4 @@
-package dto;
+package com.altech.electronic.store.dto;
 
 import java.time.LocalDateTime;
 

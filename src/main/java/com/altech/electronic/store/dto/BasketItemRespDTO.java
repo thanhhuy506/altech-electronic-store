@@ -1,7 +1,6 @@
-package dto;
+package com.altech.electronic.store.dto;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,13 +11,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BasketRespDTO {
+public class BasketItemRespDTO {
 	
-	private Long id;
-	private Long customerId;
-	
-	private List<BasketItemRespDTO> items;
-	
+	private Long productId;
+	private Integer quantity;
 	private BigDecimal totalPrice;
 	private BigDecimal totalDiscountPrice;
 	private BigDecimal finalPrice;

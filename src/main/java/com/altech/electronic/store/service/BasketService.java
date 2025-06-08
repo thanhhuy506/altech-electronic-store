@@ -1,8 +1,7 @@
 package com.altech.electronic.store.service;
 
+import com.altech.electronic.store.dto.BasketRespDTO;
 import com.altech.electronic.store.model.Basket;
-
-import dto.BasketRespDTO;
 
 public interface BasketService extends BaseService<Basket>{
 

@@ -7,7 +7,7 @@ Altech Electronic Store API contains following components:
 | Component  | URL                                         | Description                  | Language                                                          |
 | ---------- | ------------------------------------------- | ---------------------------- | ----------------------------------------------------------------- |
 | API        | http://localhost:8080                       | Altech Electronic Store API. | Java, Spring, JPA, Flyway, Lombok, Log4j2, Swagger, JUnit, Mokito |
-| Database   |                                             | Electronic Store Database.   | H2                                                                |
+| Database   | http://localhost:8080/h2-console/           | Electronic Store Database.   | H2                                                                |
 | Swagger UI | http://localhost:8080/swagger-ui/index.html | API documentation.           | HTML                                                              |
 
 ## 2. Directory structure

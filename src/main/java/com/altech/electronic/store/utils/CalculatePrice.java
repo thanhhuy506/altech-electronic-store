@@ -3,9 +3,9 @@ package com.altech.electronic.store.utils;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import dto.BasketItemRespDTO;
-import dto.BasketRespDTO;
-import dto.DiscountDTO;
+import com.altech.electronic.store.dto.BasketItemRespDTO;
+import com.altech.electronic.store.dto.BasketRespDTO;
+import com.altech.electronic.store.dto.DiscountDTO;
 
 public class CalculatePrice extends BaseUtils {
 	

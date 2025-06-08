@@ -19,15 +19,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.altech.electronic.store.dto.BasketItemRespDTO;
+import com.altech.electronic.store.dto.BasketRespDTO;
 import com.altech.electronic.store.model.Basket;
 import com.altech.electronic.store.model.BasketItem;
 import com.altech.electronic.store.model.Product;
 import com.altech.electronic.store.model.Stock;
 import com.altech.electronic.store.repository.BasketRepository;
 import com.altech.electronic.store.repository.ProductRepository;
-
-import dto.BasketItemRespDTO;
-import dto.BasketRespDTO;
 
 @ExtendWith(MockitoExtension.class)
 public class BasketServiceImplTest {

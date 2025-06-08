@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.altech.electronic.store.dto.ProductDiscountReqDTO;
+import com.altech.electronic.store.dto.ProductDiscountRespDTO;
 import com.altech.electronic.store.mapper.ProductDiscounttMapper;
 import com.altech.electronic.store.model.ProductDiscount;
 import com.altech.electronic.store.service.ProductDiscountService;
 
-import dto.ProductDiscountReqDTO;
-import dto.ProductDiscountRespDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 

@@ -1,6 +1,8 @@
-package dto;
+package com.altech.electronic.store.dto;
 
 import java.math.BigDecimal;
+
+import com.altech.electronic.store.enums.RoleEnum;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,9 +13,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserRegistrationDTO {
-	String email;
-    String password;
+public class UserDTO {
+    Long id;
+    String email;
+    RoleEnum role;
     String firstName;
     String lastName;
     String phoneNumber;

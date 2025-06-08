@@ -10,6 +10,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.altech.electronic.store.dto.UserDTO;
+import com.altech.electronic.store.dto.UserRegistrationDTO;
+import com.altech.electronic.store.dto.UserResponseDTO;
 import com.altech.electronic.store.enums.RoleEnum;
 import com.altech.electronic.store.exception.EmailAlreadyExistsException;
 import com.altech.electronic.store.exception.ResourceNotFoundException;
@@ -19,9 +22,6 @@ import com.altech.electronic.store.repository.BaseRepository;
 import com.altech.electronic.store.repository.UserRepository;
 import com.altech.electronic.store.security.JwtService;
 
-import dto.UserDTO;
-import dto.UserRegistrationDTO;
-import dto.UserResponseDTO;
 import lombok.RequiredArgsConstructor;
 
 @Service

@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.altech.electronic.store.dto.ProductDiscountReqDTO;
+import com.altech.electronic.store.dto.ProductDiscountRespDTO;
 import com.altech.electronic.store.exception.ResourceNotFoundException;
 import com.altech.electronic.store.mapper.ProductDiscounttMapper;
 import com.altech.electronic.store.model.Discount;
@@ -17,8 +19,6 @@ import com.altech.electronic.store.repository.DiscountRepository;
 import com.altech.electronic.store.repository.ProductDiscountRepository;
 import com.altech.electronic.store.repository.ProductRepository;
 
-import dto.ProductDiscountReqDTO;
-import dto.ProductDiscountRespDTO;
 import lombok.RequiredArgsConstructor;
 
 @Service

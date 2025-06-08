@@ -18,13 +18,12 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.altech.electronic.store.dto.UserDTO;
+import com.altech.electronic.store.dto.UserRegistrationDTO;
+import com.altech.electronic.store.dto.UserResponseDTO;
 import com.altech.electronic.store.model.User;
 import com.altech.electronic.store.repository.UserRepository;
 import com.altech.electronic.store.security.JwtService;
-
-import dto.UserDTO;
-import dto.UserRegistrationDTO;
-import dto.UserResponseDTO;
 
 @ExtendWith(MockitoExtension.class)
 public class UserServiceImplTest {

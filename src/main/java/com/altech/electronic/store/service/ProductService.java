@@ -1,9 +1,8 @@
 package com.altech.electronic.store.service;
 
+import com.altech.electronic.store.dto.ProductReqDTO;
+import com.altech.electronic.store.dto.ProductRespDTO;
 import com.altech.electronic.store.model.Product;
-
-import dto.ProductReqDTO;
-import dto.ProductRespDTO;
 
 public interface ProductService  extends BaseService<Product>{
 	

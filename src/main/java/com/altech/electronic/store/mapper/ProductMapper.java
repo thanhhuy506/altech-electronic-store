@@ -3,10 +3,9 @@ package com.altech.electronic.store.mapper;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.altech.electronic.store.dto.ProductReqDTO;
+import com.altech.electronic.store.dto.ProductRespDTO;
 import com.altech.electronic.store.model.Product;
-
-import dto.ProductReqDTO;
-import dto.ProductRespDTO;
 
 public class ProductMapper {
 	

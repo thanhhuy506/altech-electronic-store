@@ -4,10 +4,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.altech.electronic.store.dto.BasketItemRespDTO;
+import com.altech.electronic.store.dto.BasketRespDTO;
 import com.altech.electronic.store.model.Basket;
-
-import dto.BasketItemRespDTO;
-import dto.BasketRespDTO;
 
 public class BasketMapper {
 	

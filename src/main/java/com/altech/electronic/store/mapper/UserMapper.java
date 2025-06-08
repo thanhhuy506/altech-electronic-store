@@ -3,11 +3,10 @@ package com.altech.electronic.store.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.altech.electronic.store.dto.UserDTO;
+import com.altech.electronic.store.dto.UserRegistrationDTO;
+import com.altech.electronic.store.dto.UserResponseDTO;
 import com.altech.electronic.store.model.User;
-
-import dto.UserDTO;
-import dto.UserRegistrationDTO;
-import dto.UserResponseDTO;
 
 public class UserMapper {
 

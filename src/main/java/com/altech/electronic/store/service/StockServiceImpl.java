@@ -1,6 +1,5 @@
 package com.altech.electronic.store.service;
 
-import dto.UserResponseDTO;
 import lombok.RequiredArgsConstructor;
 
 import org.slf4j.Logger;
@@ -9,6 +8,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.altech.electronic.store.dto.UserResponseDTO;
 import com.altech.electronic.store.model.Stock;
 import com.altech.electronic.store.repository.BaseRepository;
 import com.altech.electronic.store.repository.ProductRepository;
