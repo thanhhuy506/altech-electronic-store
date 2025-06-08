@@ -17,33 +17,32 @@ import java.util.Date;
 @Setter
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseModel implements Serializable {
- 
- @Id
- @GeneratedValue(strategy = GenerationType.IDENTITY)
- private Long id;
- 
- @Version
- @Column(name = "version", nullable = false)
- private Long version = 0L;;
- 
- @CreationTimestamp
- @Column(name = "created_date", updatable = false)
- private Date createdDate;
- 
- @UpdateTimestamp
- @Column(name = "updated_date")
- private Date updatedDate;
- 
- @CreatedBy
- @Column(name = "created_by", updatable = false)
- private String createdBy;
- 
- @LastModifiedBy
- @Column(name = "updated_by")
- private String updatedBy;
- 
- @Column(name = "is_deleted")
- private Boolean isDeleted = false;
- 
- 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Version
+    @Column(name = "version", nullable = false)
+    private Long version = 0L;;
+
+    @CreationTimestamp
+    @Column(name = "created_date", updatable = false)
+    private Date createdDate;
+
+    @UpdateTimestamp
+    @Column(name = "updated_date")
+    private Date updatedDate;
+
+    @CreatedBy
+    @Column(name = "created_by", updatable = false)
+    private String createdBy;
+
+    @LastModifiedBy
+    @Column(name = "updated_by")
+    private String updatedBy;
+
+    @Column(name = "is_deleted")
+    private Boolean isDeleted = false;
+
 }
