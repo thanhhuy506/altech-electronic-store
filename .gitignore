@@ -3,6 +3,7 @@ bin
 # Git
 .gitattributes
 # Gradle files
+data
 gradle
 .gradle
 build/

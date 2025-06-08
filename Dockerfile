@@ -31,4 +31,4 @@ USER spring
 EXPOSE 8080
 
 # Run the app with H2 file database
-ENTRYPOINT ["java", "-jar", "altech-electronic-store.jar", "--spring.datasource.url=jdbc:h2:file:/data/electronic-store-db;DB_CLOSE_ON_EXIT=FALSE"]
+ENTRYPOINT ["java", "-jar", "altech-electronic-store.jar"]
